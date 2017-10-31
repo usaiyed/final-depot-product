@@ -8,24 +8,30 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="container">
-    <nav class="navbar navbar-success">
-  
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Quotes App</a>
+  <body class="w3-teal">
+    
+    
     </div>
-    <ul class="nav navbar-nav">
-      
-      <li><a href="/static_pages/home">home</a></li>
-      <li><a href="/quotes">Quotes</a></li>
-      <li><a href="/static_pages/help">help</a></li>
-      <li><a href="/static_pages/about">about</a></li>
-    </ul>
-  
-    </nav>
+     <div class="w3-container w3-twothird w3-display-topmiddle w3-margin-top">
+      <div class="w3-container w3-white w3-margin-top">
+      <div class="w3 text-center">
+  <a href="#"><h2 class="w3-text-brown">Quotes App</h2></a>
+
+
+<div class="w3-bar-item w3-blue-grey ">
+  <div class="w3-text-white">
+   
+    <a class="w3-bar-item w3-button w3-text-lime" href="/static_pages/home">Home</a>
+      <a class="w3-bar-item w3-button w3-text-lime" href="/quotes">Quotes</a>
+      <a class="w3-bar-item w3-button w3-text-lime" href="/static_pages/help">Help</a>
+      <a class="w3-bar-item w3-button w3-text-lime" href="/static_pages/about">About</a>
+</div>
+</div>
     <div>
     <%= yield %>
     
+    </div>
+    </div>
     </div>
   </body>
 </html>
