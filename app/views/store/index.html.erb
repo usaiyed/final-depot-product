@@ -1,3 +1,4 @@
+<body class="" w3-teal">
 <table class="w3-table-all w3-centered w3-bordered">
   <thead>
     <tr>
@@ -16,10 +17,10 @@
         <td><%= strip_tags(product.description) %></td>
         <td><%= image_tag(product.image_url) %></td>
         <td><%= number_to_currency(product.price) %></td>
-        <td><%= link_to 'Show', product , class:"w3-button w3-teal" %></td>
+       <!-- <td><%= link_to 'Show', product , class:"w3-button w3-teal" %></td>-->
         <td><%= button_to 'Add to Cart', line_items_path(product_id: product), class:"w3-button w3-teal" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</body>
