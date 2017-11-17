@@ -8,12 +8,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="w3-twothird w3-teal">
+  <body class="w3-twothird w3-teal ">
     
     
     </div>
      <div class="w3-container w3-twothird w3-display-topmiddle w3-margin-top w3-border-blue">
-      <div class="w3-container w3-white w3-margin-top">
+      <div class="w3-container w3-white w3-margin-top ">
       <div class="w3 text-center">
   <a href="#"><h2 class="w3-text-brown">Shopping Cart App</h2></a>
 
@@ -25,11 +25,25 @@
       <a class="w3-bar-item w3-button w3-text-lime" href="/">Store</a>
       <a class="w3-bar-item w3-button w3-text-lime" href="/static_pages/help">Help</a>
       <a class="w3-bar-item w3-button w3-text-lime" href="/static_pages/about">About</a>
-      <a class="w3-bar-item w3-button w3-text-lime" href="/products">Products</a>
+      <!--<a class="w3-bar-item w3-button w3-text-lime" href="/products">Products</a>-->
       <a class="w3-bar-item w3-button w3-text-lime" href="/carts">Cart</a>
       <a class="w3-bar-item w3-button w3-text-lime" href="/line_items">Line Items</a>
-      <a class="w3-bar-item w3-button w3-text-lime" href="/orders">Orders</a>
-</div>
+      <!--<a class="w3-bar-item w3-button w3-text-lime" href="/orders">Orders</a>-->
+      
+     <%= link_to 'Login', login_path, method: :post, class:"w3-bar-item w3-button w3-text-lime" %>
+     <br>
+      <% if session[:user_id] %>
+      
+      <a><%= link_to 'Orders', orders_path, class:"w3-bar-item w3-button w3-text-lime" %></a>
+      <a><%= link_to 'Products', products_path, class:"w3-bar-item w3-button w3-text-lime" %></a>
+      <a><%= link_to 'Users', users_path, class:"w3-bar-item w3-button w3-text-lime" %></a>
+      
+      
+      <%= link_to 'Logout', logout_path, method: :delete, class:"w3-bar-item w3-button w3-text-lime" %>
+      <% end %>
+      
+     </div>
+
 </div>
     <div>
     <%= yield %>

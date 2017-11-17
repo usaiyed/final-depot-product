@@ -1,34 +1,52 @@
 <p id="notice"><%= notice %></p>
 
 <div class="panel panel-default">
-
 <div class="panel-heading">cart</div>
-
 <div class="panel-body">
+
 
 <table class="table table-responsive">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <!--<th colspan="3"></th>-->
+      <th class="w3-center">Quantity</th>
+      <th class="w3-center">Book Name</th>
+      <th class="w3-center">Price</th>
     </tr>
   </thead>
  
 <tbody>
 	  <% @cart.line_items.each do |item| %>
+	    
 	    <tr>
 	    <td><%= item.quantity %> &times;</td><td> <%= item.product.title %></td><td><%= number_to_currency(item.total_price) %></td>
-	    <td colspan="2">Total Order Value<%= number_to_currency(@cart.total_price) %></td>
-	  </tr>
+      </tr>
+	   
 	  <% end %>
 	</tbody>
+<tbody>
+		<tr>
+	    <th class="w3-center">Total Order Value</th>
+      <th class="w3-right-align", colspan="3"><%= number_to_currency(@cart.total_price) %></th> 
+	   	</tr>
+</tbody>
 </table>
 </div>
 
-<div class="panel-footer">
+<div class="panel-footer ">
 
-<%= link_to 'Edit', edit_cart_path(@cart) ,class:"w3-button w3-teal" %> |
-<%= link_to 'Back', carts_path , class:"w3-button w3-teal" %>
-<%= button_to 'Empty cart', @cart, method: :delete,  data: { confirm: 'Are you sure?' }, class:"w3-button w3-teal w3-margin-top" %>
-<%= link_to 'Keep Shopping', store_index_url , class:"w3-button w3-teal w3-margin-top" %>
-<%= button_to "Checkout", new_order_path, method: :get, class:"w3-button w3-teal w3-margin-top" %>
+<%= link_to 'Edit', edit_cart_path(@cart) ,class:"w3-button w3-teal w3-left " %> 
+<%= link_to 'Back', carts_path , class:"w3-button w3-teal w3-left w3-margin-left" %>
+<%= button_to 'Empty cart', @cart, method: :delete,  data: { confirm: 'Are you sure?' }, class:"w3-button w3-teal w3-margin-bottom w3-margin-left w3-left " %>
+<%= link_to 'Keep Shopping', store_index_url , class:"w3-button w3-teal w3-margin-bottom w3-margin-bottom w3-left w3-margin-left" %>
+
+<% if session[:user_id] %>
+<%= button_to "Checkout", new_order_path, method: :get, class:"w3-button w3-teal w3-right  " %>
+<% else %>
+<%= button_to "Checkout", login_path, method: :get, data: { confirm: 'Please login to Checkout' }, class:"w3-button w3-teal w3-right " %>
+<br><br>
+<br>
+<% end %>
+
+
 </div></div>
